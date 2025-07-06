@@ -1,0 +1,5 @@
+# Default ignored files
+/.idea/
+/package.json
+/package-lock.json
+/prepros.config
