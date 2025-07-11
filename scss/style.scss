@@ -1,22 +1,88 @@
+
+$color-bg: #f5f9fc;
+$color-accent: #2196f3;
+$color-accent-hover: #007dd4;
+$color-accent-active: #186db2;
+$color-accent-focus: #007bff;
+$color-text-dark: #333;
+$color-text-light: #9fa9b5;
+$color-white: #fff;
+$font-main: 'Open Sans', sans-serif;
+$color-border: #9ABBCE;
+$color-accent-light: #F1FCFF;
+$color-text: #333;
+$color-subtle: #9fa9b5;
+$radius: 5px;
+$shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+$transition: 0.2s ease;
+$form-border: #b0c7d6;
+$form-accent: #2196f3;
+$form-accent-hover: #007dd4;
+$form-bg: #f5f9fc;
+$form-white: #ffffff;
+$form-radius: 4px;
+$form-text: #333;
+$form-muted: #666;
+$form-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+
 .page {
   margin: 0;
   padding: 0;
-  font-family: Open Sans;
+  font-family: $font-main;
   font-weight: 600;
-  background-color: #f5f9fc;
+  background-color: $color-bg;
 }
 
-.pies {
-  max-width: 480px;
-  margin: 0px auto;
-  padding: 0 16px;
+.main-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 25px 0 68.5px;
+}
+
+.pirozhki {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+
+  &__sort {
+    display: flex;
+    margin-bottom: 24px;
+
+    &-button {
+      flex: 1;
+      padding: 15px 60px;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 140%;
+      border: none;
+      background: $color-white;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      cursor: pointer;
+      text-transform: uppercase;
+
+      &:hover {
+        background: $color-accent;
+        color: $color-white;
+      }
+
+      &--active {
+        background: $color-accent;
+        color: $color-white;
+
+        &:hover {
+          background-color: $color-accent-hover;
+        }
+      }
+    }
+  }
 
   &__link {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 25px;
-    margin-bottom: 68.5px;
+    margin: 25px 0 68.5px;
   }
 
   &__card {
@@ -27,11 +93,10 @@
     display: block;
     width: 100%;
     padding: 14px 0;
-    margin-top: 20px;
-    margin-bottom: 70px;
+    margin: 20px 0 50px;
     border: none;
-    background-color: #2196F3;
-    color: white;
+    background-color: $color-accent;
+    color: $color-white;
     border-radius: 6px;
     font-size: 12px;
     line-height: 20px;
@@ -41,32 +106,139 @@
     transition: background-color 0.2s ease;
 
     &:hover {
-      background-color: #007dd4;
+      background-color: $color-accent-hover;
     }
 
     &:focus {
-      background-color: #007BFF;
+      background-color: $color-accent-focus;
     }
 
     &:active {
-      background-color: #186DB2;
+      background-color: $color-accent-active;
     }
   }
 }
 
+.filter {
+  flex: 1 1 220px;
+  max-width: 230px;
+
+  &__title {
+    text-transform: uppercase;
+    width: 99%;
+    padding-left: 12px;
+    padding-right: 1px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 14px;
+    background: $color-white;
+    appearance: none;
+    background-image: url("../img/Rectangle 128.png");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    cursor: pointer;
+  }
+
+  &__form {
+    background-color: $color-white;
+    border-radius: $radius;
+    padding: 10px;
+    box-shadow: $shadow;
+  }
+
+  &__section {
+    margin-bottom: 10px;
+    border: none;
+    padding: 0;
+
+    legend.filter__title {
+      font-size: 14px;
+      font-weight: 600;
+      color: $color-text;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__option {
+    display: block;
+    height: 28px;
+    font-weight: 400;
+    position: relative;
+    font-size: 14px;
+    color: $color-text;
+    margin-bottom: 6px;
+    padding: 6px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+
+    input[type="checkbox"] {
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      border: 1px solid $color-accent;
+      border-radius: 2px;
+      vertical-align: middle;
+      position: relative;
+      cursor: pointer;
+
+      &:checked {
+        background-color: $color-bg;
+
+        &::before {
+          content:url('../img/Shape.png');
+          position: absolute;
+          font-size: 12px;
+          color: $color-accent;
+          left: 3px;
+          top: 2px;
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+
+    input[type="checkbox"]:checked + span,
+    &:has(input[type="checkbox"]:checked) {
+      background-color: $color-accent-light;
+    }
+  }
+
+  &__select {
+    width: 100%;
+    height: 41px;
+    font-weight: 400;
+    padding: 10px 10px;
+    font-size: 14px;
+    border: 1px solid $color-border;
+    border-radius: 2px;
+    background: $color-white;
+    appearance: none;
+    background-image: url("../img/Rectangle 127.png");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    cursor: pointer;
+  }
+}
+
 .card {
-  background: #fff;
+  background: $color-white;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  padding: 20px 24px;
+  padding: 16px 20px;
   display: flex;
   flex-direction: column;
   gap: 14px;
+  msx-width: 480px;
 
   &__price {
     font-size: 24px;
-    color: #2196F3;
-    
+    color: $color-accent;
   }
 
   &__info {
@@ -80,7 +252,7 @@
     flex-direction: column;
     font-size: 14px;
     line-height: 21px;
-    color: #333;
+    color: $color-text-dark;
     min-width: 120px;
   }
 
@@ -88,8 +260,160 @@
     font-size: 12px;
     line-height: 18px;
     text-transform: uppercase;
-    color: #9fa9b5;
+    color: $color-text-light;
     margin-bottom: 4px;
+  }
+}
+
+.layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 750px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+.form {
+  background: $form-bg;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 0 auto;
+  flex: 1 1 100%;
+  max-width: 780px;
+
+  &__title {
+    font-size: 20px;
+    font-weight: 600;
+    color: $form-text;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__fields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    .form__input {
+      font-family: "Montserrat", sans-serif;
+      flex: 1 1 calc(48% - 8px);
+      padding: 8px;
+      font-size: 14px;
+      font-weight: 400;
+      border: 2px solid $form-border;
+      background-color: $color-bg;
+      color: $form-text;
+      outline: none;
+      transition: border-color 0.2s ease;
+
+      &:focus {
+        border-color: $form-accent;
+      }
+
+      &::placeholder {
+        color: $form-muted;
+      }
+
+      select {
+        appearance: none;
+        background-image: url("../img/Rectangle 127.png");
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        background-size: 14px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__checkbox {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: $form-muted;
+    
+    span {
+      font-family: "Montserrat", sans-serif;
+      border-bottom: 1px solid #000;
+      height: 23px;
+    }
+
+    input[type="checkbox"] {
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      margin-right: 8px;
+      border: 2px solid $form-accent;
+      border-radius: 50%;
+      position: relative;
+      cursor: pointer;
+      top: 4px;
+
+      &:checked {
+        background-color: $form-accent;
+
+        &::before {
+          content:url('../img/Shape2.png');
+          font-size: 12px;
+          color: white;
+          position: absolute;
+          left: 2px;
+          top: 0;
+          width: 8px;
+          height: 10px;
+        }
+      }
+    }
+
+    span {
+      color: $form-muted;
+    }
+  }
+
+  &__submit {
+    height: 55px;
+    margin-top: 10px;
+    padding: 14px 0 -1px 0;
+    font-size: 18px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    color: white;
+    background-color: $form-accent;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: $form-accent-hover;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+
+  .layout {
+    flex-direction: column;
+  }
+
+  .filter {
+    width: 100%;
+    max-width: 768px;
+  }
+
+  .pirozhki {
+    width: 100%;
+    max-width: 768px;
+  }
+
+  .form__fields {
+    flex-direction: column;
+    width: 100%;
+
+    .form__input {
+      flex: 1 1 100%;
+    }
   }
 }
 
@@ -102,4 +426,4 @@
   .card__field {
     width: 100%;
   }
-} 
+}
