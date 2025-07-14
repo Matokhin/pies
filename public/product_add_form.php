@@ -22,10 +22,10 @@ $uniqueDoughs = array_unique($doughs);
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Пирожки</title>
-    <link rel="stylesheet" href="/assets/styles.css" />
+    <title>Форма добавления пирожков</title>
+    <link rel="stylesheet" href="/assets/styles.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
@@ -96,28 +96,39 @@ $uniqueDoughs = array_unique($doughs);
         <form method="post" action="/api/add_pirozhok.php" class="pirozhki__form form" autocomplete="off">
             <div class="form__title">Форма</div>
             <div class="form__fields">
-                <input class="form__input" name="price" type="text" placeholder="Цена" />
-                <select class="form__input" name="filling">
-                    <option disabled selected>Начинка</option>
-                    <?php foreach ($uniqueFillings as $filling): ?>
-                        <option><?=$filling?></option>
-                    <?php endforeach; ?>
-                </select>
-                <input class="form__input" name="prep_time" type="number" placeholder="Срок изготовления, минут" />
-                <select class="form__input" name="dough">
-                    <option disabled selected>Тесто</option>
-                    <?php foreach ($uniqueDoughs as $dough): ?>
-                        <option value="<?= htmlspecialchars($dough) ?>"><?= htmlspecialchars($dough) ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </div>
+                <div class="form__input-wrapper">
+                    <div class="form__input-title">Цена</div>
+                    <input class="form__input" name="price" type="text" placeholder="Цена"/>
+                </div>
+                <div class="form__input-wrapper">
+                    <div class="form__input-title">Начинка</div>
+                    <select class="form__input select" name="filling">
+                        <option disabled selected>Начинка</option>
+                        <?php foreach ($uniqueFillings as $filling): ?>
+                            <option><?=$filling?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <div class="form__input-wrapper">
+                    <div class="form__input-title">Срок изготовления, минут</div>
+                    <input class="form__input" name="prep_time" type="number" placeholder="Срок изготовления, минут"/>
+                </div>
+                    <div class="form__input-wrapper">
+                        <div class="form__input-title">Тесто</div>
+                        <select class="form__input select" name="dough">
+                            <option disabled selected>Тесто</option>
+                            <?php foreach ($uniqueDoughs as $dough): ?>
+                                <option value="<?= htmlspecialchars($dough) ?>"><?= htmlspecialchars($dough) ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </div>
             <label class="form__checkbox">
                 <input type="checkbox" name="agreement" required checked />
                 <span>Согласие на обработку персональных данных</span>
             </label>
             <button type="submit" class="form__submit">Отправить</button>
         </form>
-
     </div>
 </body>
 </html>

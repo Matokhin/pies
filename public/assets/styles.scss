@@ -33,11 +33,25 @@ $form-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   background-color: $color-bg;
 }
 
+.bottom-form-link, .main-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.bottom-form-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+}
+
 .main-link {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 25px 0 68.5px;
+  margin-top: 8px;
 }
 
 .pirozhki {
@@ -54,13 +68,53 @@ $form-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
       padding: 15px 60px;
       font-size: 12px;
       font-weight: 600;
+      font-family: $font-main;
       line-height: 140%;
       border: none;
       background: $color-white;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      border-radius: 5px;
       cursor: pointer;
       text-transform: uppercase;
+      &:first-child {
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        transition: background-color 0.2s ease;
+      }
+
+      &:last-child {
+        border: 1px solid #DFE5EC;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        color: #4A4A4A;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          border: none;
+        }
+
+        &:focus {
+          background-color: $color-accent-focus;
+          color: #fff;
+        }
+
+        &:active {
+          background-color: $color-accent-active;
+          color: #fff;
+        }
+
+      }
+
+      &:hover {
+        background-color: $color-accent-hover;
+      }
+
+      &:focus {
+        background-color: $color-accent-focus;
+      }
+
+      &:active {
+        background-color: $color-accent-active;
+      }
+
 
       &:hover {
         background: $color-accent;
@@ -82,22 +136,24 @@ $form-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 25px 0 68.5px;
+    margin-bottom: 60px;
   }
 
   &__card {
     margin-bottom: 10px;
+    font-family: $font-main;
   }
 
   &__more-button {
     display: block;
     width: 100%;
-    padding: 14px 0;
-    margin: 20px 0 50px;
+    padding: 15px 0;
+    margin: 20px 0 30px;
     border: none;
     background-color: $color-accent;
     color: $color-white;
-    border-radius: 6px;
+    border-radius: 5px;
+    font-family: $font-main;
     font-size: 12px;
     line-height: 20px;
     font-weight: 600;
@@ -126,33 +182,41 @@ $form-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   &__title {
     text-transform: uppercase;
     width: 99%;
-    padding-left: 12px;
-    padding-right: 1px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    font-size: 14px;
+    padding: 10px 10px 10px 0;
     background: $color-white;
     appearance: none;
     background-image: url("../img/Rectangle 128.png");
     background-repeat: no-repeat;
     background-position: right 10px center;
     cursor: pointer;
+    color: #4A4A4A;
   }
 
   &__form {
     background-color: $color-white;
     border-radius: $radius;
-    padding: 10px;
+    padding: 10px 15px;
     box-shadow: $shadow;
+    color: #4A4A4A;
   }
 
   &__section {
     margin-bottom: 10px;
     border: none;
     padding: 0;
+    color: #4A4A4A;
+
+    &:last-child {
+      legend.filter__title {
+        background-image: url("../img/Rectangle 127.png");
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+      }
+    }
 
     legend.filter__title {
-      font-size: 14px;
+      font-family: $font-main;
+      font-size: 12px;
       font-weight: 600;
       color: $color-text;
       margin-bottom: 8px;
@@ -212,9 +276,11 @@ $form-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   &__select {
     width: 100%;
     height: 41px;
+    font-family: "Montserrat", sans-serif;
     font-weight: 400;
+    color: #000;
     padding: 10px 10px;
-    font-size: 14px;
+    font-size: 13px;
     border: 1px solid $color-border;
     border-radius: 2px;
     background: $color-white;
@@ -228,7 +294,7 @@ $form-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 
 .card {
   background: $color-white;
-  border-radius: 8px;
+  border-radius: 5px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   padding: 16px 20px;
   display: flex;
@@ -270,7 +336,7 @@ $form-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   flex-wrap: wrap;
   gap: 20px;
   max-width: 750px;
-  margin: 40px auto;
+  margin: 45px auto;
   padding: 0 16px;
 }
 
@@ -285,11 +351,12 @@ $form-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   max-width: 780px;
 
   &__title {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 600;
     color: $form-text;
     text-align: center;
     text-transform: uppercase;
+    font-family: $font-main;
   }
 
   &__fields {
@@ -297,47 +364,62 @@ $form-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     flex-wrap: wrap;
     gap: 16px;
 
-    .form__input {
-      font-family: "Montserrat", sans-serif;
+    .form__input-wrapper {
       flex: 1 1 calc(48% - 8px);
-      padding: 8px;
-      font-size: 14px;
+      font-family: "Montserrat", sans-serif;
       font-weight: 400;
+    }
+
+    .form__input-title {
+      font-size: 15px;
+      margin-bottom: 5px;
+    }
+
+    .form__input {
+      width: 100%;
+      height:40px;
+      padding: 8px;
+      font-size: 18px;
       border: 2px solid $form-border;
       background-color: $color-bg;
       color: $form-text;
       outline: none;
-      transition: border-color 0.2s ease;
 
-      &:focus {
-        border-color: $form-accent;
+      &[type="text"], &[type="number"] {
+        max-width: 96%;
+
       }
 
-      &::placeholder {
-        color: $form-muted;
-      }
 
-      select {
-        appearance: none;
-        background-image: url("../img/Rectangle 127.png");
-        background-repeat: no-repeat;
-        background-position: right 10px center;
-        background-size: 14px;
-        cursor: pointer;
-      }
     }
+  }
+
+  .select {
+    height: 60px;
+    padding: 8px;
+    font-size: 18px;
+    appearance: none;
+    background-image: url("../img/Rectangle 127.png");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px;
+    cursor: pointer;
+    color: $form-text;
+    bottom: 0;
   }
 
   &__checkbox {
     display: flex;
     align-items: center;
-    font-size: 14px;
+    font-size: 15px;
     color: $form-muted;
-    
+
     span {
       font-family: "Montserrat", sans-serif;
-      border-bottom: 1px solid #000;
-      height: 23px;
+      font-weight: 400;
+      border-bottom: 1px solid $form-muted;
+      height: 24px;
+      cursor: pointer;
     }
 
     input[type="checkbox"] {
@@ -375,18 +457,29 @@ $form-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   &__submit {
     height: 55px;
     margin-top: 10px;
-    padding: 14px 0 -1px 0;
+    padding: 15px 0 -1px 0;
     font-size: 18px;
     font-family: "Montserrat", sans-serif;
-    font-weight: 600;
+    font-weight: 500;
     color: white;
     background-color: $form-accent;
     border: none;
     cursor: pointer;
     transition: background-color 0.2s ease;
 
+
+    transition: background-color 0.2s ease;
+
     &:hover {
-      background-color: $form-accent-hover;
+      background-color: $color-accent-hover;
+    }
+
+    &:focus {
+      background-color: $color-accent-focus;
+    }
+
+    &:active {
+      background-color: $color-accent-active;
     }
   }
 }
@@ -413,8 +506,14 @@ $form-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 
     .form__input {
       flex: 1 1 100%;
+
+      &[type="text"], &[type="number"] {
+        max-width: 370px;
+      }
     }
   }
+
+
 }
 
 @media (max-width: 420px) {

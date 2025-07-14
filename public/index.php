@@ -11,7 +11,7 @@ $initialPirozhki = $repo->getAll();
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Пирожки</title>
+  <title>Список с пирожками</title>
   <link rel="stylesheet" href="/assets/styles.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,14 +21,14 @@ $initialPirozhki = $repo->getAll();
 </head>
 <body class="page">
 
+    <!-- Кнопка открытия интерфейса -->
+    <a href="product_add_form.php" class="bottom-form-link">
+        <img src="img/cake-svgrepo-com_1.png" alt="Перейти на страницу добавления товара">
+    </a>
+
     <!-- Контейнер -->
     <div class="layout">
         <main class="pirozhki">
-
-            <!-- Кнопка открытия интерфейса -->
-            <a href="product_add_form.php" class="pirozhki__link">
-                <img src="img/cake-svgrepo-com_1.png" alt="Перейти на страницу добавления товара">
-            </a>
 
             <!-- Карточки товара -->
             <div class="pirozhki__list">
