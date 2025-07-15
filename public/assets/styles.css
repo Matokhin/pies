@@ -194,7 +194,7 @@
     padding: 0;
     color: #4A4A4A;
 }
-.filter__section:last-child legend.filter__title {
+.filter__section:last-child div.filter__title {
     background-image: url("../img/Rectangle 127.png");
     background-repeat: no-repeat;
     background-position: right 10px center;
