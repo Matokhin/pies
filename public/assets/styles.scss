@@ -180,6 +180,7 @@ $form-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   max-width: 230px;
 
   &__title {
+    font-size: 12px;
     text-transform: uppercase;
     width: 99%;
     padding: 10px 10px 10px 0;
@@ -214,7 +215,7 @@ $form-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
       }
     }
 
-    legend.filter__title {
+    .filter__title {
       font-family: $font-main;
       font-size: 12px;
       font-weight: 600;

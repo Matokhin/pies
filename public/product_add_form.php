@@ -46,24 +46,24 @@ $uniqueDoughs = array_unique($doughs);
         <!-- Фильтр -->
         <aside class="filter">
             <form method="get" action="/api/get_pirozhki.php"  class="filter__form">
-                <fieldset name="fillings" class="filter__section">
-                    <legend class="filter__title">Начинка</legend>
+                <div name="fillings" class="filter__section">
+                    <div class="filter__title">Начинка</div>
                     <?php foreach ($uniqueFillings as $filling): ?>
                         <label class="filter__option">
                             <input type="checkbox" name="filling[]" value="<?= htmlspecialchars($filling) ?>" checked />
                             <?= htmlspecialchars($filling) ?>
                         </label>
                     <?php endforeach; ?>
-                </fieldset>
-                <fieldset name="dough" class="filter__section">
-                    <legend class="filter__title">Тесто</legend>
+                </div>
+                <div name="dough" class="filter__section">
+                    <div class="filter__title">Тесто</div>
                     <select class="filter__select">
                         <option disabled selected>Выбрать</option>
                         <?php foreach ($uniqueDoughs as $dough): ?>
                             <option value="<?= htmlspecialchars($dough) ?>"><?= htmlspecialchars($dough) ?></option>
                         <?php endforeach; ?>
                     </select>
-                </fieldset>
+                </div>
             </form>
         </aside>
 

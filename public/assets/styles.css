@@ -166,6 +166,7 @@
     max-width: 230px;
 }
 .filter__title {
+    font-size: 12px;
     text-transform: uppercase;
     width: 99%;
     padding: 10px 10px 10px 0;
@@ -198,7 +199,7 @@
     background-repeat: no-repeat;
     background-position: right 10px center;
 }
-.filter__section legend.filter__title {
+.filter__section .filter__title {
     font-family: "Open Sans", sans-serif;
     font-size: 12px;
     font-weight: 600;
